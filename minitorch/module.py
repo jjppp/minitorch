@@ -62,7 +62,7 @@ class Module:
 
     def parameters(self) -> Sequence[Parameter]:
         "Enumerate over all the parameters of this module and its descendents."
-        return list(map(lambda x: x[0], self.named_parameters()))
+        return list(map(lambda x: x[1], self.named_parameters()))
 
     def add_parameter(self, k: str, v: Any) -> Parameter:
         """

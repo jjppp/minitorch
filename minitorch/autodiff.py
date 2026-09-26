@@ -61,13 +61,13 @@ def topological_sort(variable: Variable) -> Iterable[Variable]:
     Returns:
         Non-constant Variables in topological order starting from the right.
     """
-    visited = []
+    visited = set()
     rpo = []
 
     def dfs(v: Variable):
         if v.unique_id in visited:
             return
-        visited.append(v.unique_id)
+        visited.add(v.unique_id)
         for u in v.parents:
             dfs(u)
         rpo.append(v)
